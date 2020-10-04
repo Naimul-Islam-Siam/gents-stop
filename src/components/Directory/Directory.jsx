@@ -16,7 +16,7 @@ class Directory extends React.Component {
             },
             {
                id: 2,
-               title: 'shoes',
+               title: 'sneakers',
                imageUrl: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80'
             },
             {
