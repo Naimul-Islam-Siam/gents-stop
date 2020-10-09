@@ -12,6 +12,34 @@ const config = {
    appId: "1:1073066533077:web:e3ec5449039a580597025c"
 };
 
+// create new profile and store in firestore while signing up
+export const createUserProfileDoc = async (userAuth, additionalData) => {
+   if (!userAuth) return;
+
+   const userRef = firestore.doc(`users/${userAuth.uid}`);
+   const snapshot = await userRef.get();
+
+   // check if user already exists
+   if (!snapshot.exists) {
+      const { displayName, email } = userAuth;
+      const createdAt = new Date();
+
+      try {
+         // create the user and store in firestore
+         await userRef.set({
+            displayName,
+            email,
+            createdAt,
+            ...additionalData
+         });
+      } catch (error) {
+         console.log("Error Creating User", error.message);
+      }
+   }
+
+   return userRef;
+};
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
