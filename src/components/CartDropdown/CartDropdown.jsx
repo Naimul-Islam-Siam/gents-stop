@@ -3,6 +3,7 @@ import './CartDropdown.scss';
 import CustomButton from './../CustomButton/CustomButton';
 import CartItem from './../CartItem/CartItem';
 import { connect } from 'react-redux';
+import { selectCartItems } from './../../redux/cart/cartSelectors';
 
 
 const CartDropdown = ({ cartItems }) => (
@@ -20,7 +21,7 @@ const CartDropdown = ({ cartItems }) => (
 
 
 const mapStateToProps = state => ({
-   cartItems: state.cart.cartItems
+   cartItems: selectCartItems(state) // allows CartDropdown to re-render only when it's required (when state changes are related to cartItems)
 });
 
 
