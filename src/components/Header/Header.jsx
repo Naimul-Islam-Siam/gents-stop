@@ -2,8 +2,10 @@ import React from 'react'
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from './../../assets/logo.svg';
-import { auth } from './../../firebase/firebase.utils';
 import { connect } from 'react-redux';
+import { selectCurrentUser } from './../../redux/user/userSelectors';
+import { selectCartHidden } from './../../redux/cart/cartSelectors';
+import { auth } from './../../firebase/firebase.utils';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 
@@ -37,8 +39,8 @@ const Header = ({ currentUser, cartHidden }) => (
 
 
 const mapStateToProps = state => ({
-   currentUser: state.user.currentUser,
-   cartHidden: state.cart.cartHidden
+   currentUser: selectCurrentUser(state),
+   cartHidden: selectCartHidden(state)
 });
 
 
