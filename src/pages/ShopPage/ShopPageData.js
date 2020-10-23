@@ -1,5 +1,5 @@
-const SHOP_DATA = [
-   {
+const SHOP_DATA = {
+   shirts: {
       id: 1,
       title: 'Shirts',
       routeName: 'shirts',
@@ -60,7 +60,7 @@ const SHOP_DATA = [
          }
       ]
    },
-   {
+   sneakers: {
       id: 2,
       title: 'Sneakers',
       routeName: 'sneakers',
@@ -115,7 +115,7 @@ const SHOP_DATA = [
          }
       ]
    },
-   {
+   jackets: {
       id: 3,
       title: 'Jackets',
       routeName: 'jackets',
@@ -152,7 +152,7 @@ const SHOP_DATA = [
          }
       ]
    },
-   {
+   watches: {
       id: 4,
       title: 'Watches',
       routeName: 'watches',
@@ -201,7 +201,7 @@ const SHOP_DATA = [
          }
       ]
    },
-   {
+   haircare: {
       id: 5,
       title: 'Hair-Care',
       routeName: 'haircare',
@@ -244,6 +244,6 @@ const SHOP_DATA = [
          }
       ]
    }
-];
+};
 
 export default SHOP_DATA;
