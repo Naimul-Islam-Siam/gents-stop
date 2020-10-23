@@ -8,7 +8,7 @@ const COLLECTION_ID_MAP = {
    shirts: 1,
    sneakers: 2,
    jackets: 3,
-   wathces: 4,
+   watches: 4,
    haircare: 5
 };
 
