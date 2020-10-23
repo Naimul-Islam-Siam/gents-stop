@@ -185,7 +185,7 @@ const SHOP_DATA = [
             id: 27,
             name: 'Silver Link',
             imageUrl: 'https://images.unsplash.com/photo-1594534475808-b18fc33b045e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
-            price: 1200
+            price: 999
          },
          {
             id: 28,
@@ -204,7 +204,7 @@ const SHOP_DATA = [
    {
       id: 5,
       title: 'Hair-Care',
-      routeName: 'hair-care',
+      routeName: 'haircare',
       items: [
          {
             id: 30,
