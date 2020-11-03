@@ -67,7 +67,7 @@ class App extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  currentUser: selectCurrentUser(state)
+  currentUser: selectCurrentUser(state),
 });
 
 const mapDispatchToProps = dispath => ({
