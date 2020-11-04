@@ -1,8 +1,7 @@
-import SHOP_DATA from './../../pages/ShopPage/ShopPageData';
 import ShopActionTypes from './shopTypes';
 
 const INITIAL_STATE = {
-   collections: SHOP_DATA
+   collections: null
 };
 
 

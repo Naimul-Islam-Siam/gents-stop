@@ -6,9 +6,12 @@ export const selectCollections = createSelector([selectShop], shop => shop.colle
 
 // convert object to iterable
 export const selectCollectionForPreview = createSelector([selectCollections],
-   collections => Object.keys(collections).map(key => collections[key])
+   collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
 // route param
 export const selectCollectionFromUrl = collectionUrlParam =>
-   createSelector([selectCollections], collections => collections[collectionUrlParam]);
+   createSelector(
+      [selectCollections],
+      collections => collections ? collections[collectionUrlParam] : null
+   );
