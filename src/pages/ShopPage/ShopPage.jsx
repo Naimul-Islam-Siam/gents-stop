@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CollectionOverview from '../../components/CollectionOverview/CollectionOverview';
 import CollectionPage from '../CollectionPage/CollectionPage';
@@ -13,9 +13,11 @@ const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 
 class ShopPage extends React.Component {
-   state = {
-      loading: true
-   };
+   constructor() {
+      super();
+
+      this.state = { loading: true };
+   }
 
    unsubscribeFromSnapshot = null;
 
@@ -23,7 +25,7 @@ class ShopPage extends React.Component {
       const { updateCollections } = this.props;
       const collectionRef = firestore.collection('collections');
 
-      collectionRef.onSnapshot(async snapshot => {
+      collectionRef.get().then(snapshot => {
          const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
          updateCollections(collectionsMap);
          this.setState({ loading: false });

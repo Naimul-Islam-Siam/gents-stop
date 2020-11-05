@@ -10,7 +10,6 @@ import ShopPage from './pages/ShopPage/ShopPage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import { auth, createUserProfileDoc } from './firebase/firebase.utils';
-import CollectionPage from './pages/CollectionPage/CollectionPage';
 
 
 class App extends React.Component {
@@ -50,7 +49,6 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          {/* <Route exact path='/shop/:collectionId' component={CollectionPage} /> */}
           <Route exact path='/checkout' component={CheckoutPage} />
           <Route
             exact
