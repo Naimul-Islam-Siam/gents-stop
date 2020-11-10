@@ -4,38 +4,34 @@ import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import { connect } from 'react-redux';
-import { setCurrentUser } from './redux/user/userActions';
 import { selectCurrentUser } from './redux/user/userSelectors';
 import ShopPage from './pages/ShopPage/ShopPage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
-import { auth, createUserProfileDoc } from './firebase/firebase.utils';
 
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    //   // if user is signing in
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDoc(userAuth);
 
-      // if user is signing in
-      if (userAuth) {
-        const userRef = await createUserProfileDoc(userAuth);
+    //     userRef.onSnapshot(snapshot => {
+    //       setCurrentUser({
+    //         id: snapshot.id,
+    //         ...snapshot.data()
+    //       });
+    //     });
 
-        userRef.onSnapshot(snapshot => {
-          setCurrentUser({
-            id: snapshot.id,
-            ...snapshot.data()
-          });
-        });
-
-      } else {
-        // if user signs out
-        setCurrentUser(userAuth); // which will be null
-      }
-    });
+    //   } else {
+    //     // if user signs out
+    //     setCurrentUser(userAuth); // which will be null
+    //   }
+    // });
   }
 
   componentWillUnmount() {
@@ -68,9 +64,5 @@ const mapStateToProps = (state) => ({
   currentUser: selectCurrentUser(state),
 });
 
-const mapDispatchToProps = dispath => ({
-  setCurrentUser: user => dispath(setCurrentUser(user))
-});
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
