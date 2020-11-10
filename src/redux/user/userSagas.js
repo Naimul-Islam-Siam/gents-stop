@@ -22,7 +22,7 @@ export function* signInWithGoogle() {
    try {
       const { user } = yield auth.signInWithPopup(googleProvider);
 
-      getSnapshotFromAuth(user);
+      yield getSnapshotFromAuth(user);
    } catch (error) {
       yield put(signinFailure(error));
    }
@@ -32,7 +32,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
    try {
       const { user } = yield auth.signInWithEmailAndPassword(email, password);
 
-      getSnapshotFromAuth(user);
+      yield getSnapshotFromAuth(user);
    } catch (error) {
       yield put(signinFailure(error));
    }
@@ -45,7 +45,7 @@ export function* onGoogleSignInStart() {
 };
 
 export function* onEmailSignInStart() {
-   yield takeLatest(userActionTypes.GOOGLE_SIGN_IN_START, signInWithEmail);
+   yield takeLatest(userActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
 };
 
 export function* userSagas() {
