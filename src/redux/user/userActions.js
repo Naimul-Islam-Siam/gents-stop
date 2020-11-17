@@ -21,5 +21,5 @@ export const signinFailure = (error) => ({
 });
 
 export const checkUserSession = () => ({
-   type: userActionTypes.CHECK_USER_SESSIOON
+   type: userActionTypes.CHECK_USER_SESSION
 });
