@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from './redux/user/userSelectors';
+import { checkUserSession } from './redux/user/userActions';
 import ShopPage from './pages/ShopPage/ShopPage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
@@ -14,6 +15,9 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const { checkUserSession } = this.props;
+    checkUserSession();
+
     // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
     //   // if user is signing in
@@ -64,5 +68,9 @@ const mapStateToProps = (state) => ({
   currentUser: selectCurrentUser(state),
 });
 
+const mapDispatchToProps = dispatch => ({
+  checkUserSession: dispatch(checkUserSession())
+});
 
-export default connect(mapStateToProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
