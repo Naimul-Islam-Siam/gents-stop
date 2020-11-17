@@ -69,7 +69,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  checkUserSession: dispatch(checkUserSession())
+  checkUserSession: () => dispatch(checkUserSession())
 });
 
 
