@@ -201,10 +201,10 @@ const SHOP_DATA = {
          }
       ]
    },
-   haircare: {
+   'hair-care': {
       id: 5,
       title: 'Hair-Care',
-      routeName: 'haircare',
+      routeName: 'hair-care',
       items: [
          {
             id: 30,

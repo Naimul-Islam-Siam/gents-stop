@@ -15,7 +15,7 @@ const INITIAL_STATE = {
       {
          id: 3,
          title: 'hair-care',
-         linkUrl: 'shop/haircare',
+         linkUrl: 'shop/hair-care',
          imageUrl: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=871&q=80'
       },
       {
