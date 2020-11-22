@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
+import { GlobalStyle } from './global.styles';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from './redux/user/userSelectors';
 import { checkUserSession } from './redux/user/userActions';
@@ -18,6 +18,7 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
