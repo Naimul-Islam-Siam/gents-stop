@@ -6,6 +6,7 @@ import { GlobalStyle } from './global.styles';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from './redux/user/userSelectors';
 import { checkUserSession } from './redux/user/userActions';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'; // if any error occurs, network goes down, 404 etc
 
 // dynamic import
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -24,18 +25,20 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route
-            exact
-            path='/signin'
-            render={() => currentUser ?
-              (<Redirect to='/' />) : (<SignInPage />)
-            }
-          />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path='/' component={HomePage} />
+            <Route path='/shop' component={ShopPage} />
+            <Route exact path='/checkout' component={CheckoutPage} />
+            <Route
+              exact
+              path='/signin'
+              render={() => currentUser ?
+                (<Redirect to='/' />) : (<SignInPage />)
+              }
+            />
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   );
