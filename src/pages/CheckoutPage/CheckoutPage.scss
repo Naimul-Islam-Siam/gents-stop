@@ -40,3 +40,9 @@
     margin-left: auto;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .checkout-page {
+    width: 92%;
+  }
+}
