@@ -14,7 +14,7 @@ export const CollectionItemContainer = styled.div`
          opacity: 0.8;
       }
 
-      .add-to-cart-button {
+      button {
          display: flex;
          opacity: 0.85;
          justify-content: center;
@@ -29,7 +29,7 @@ export const CollectionItemContainer = styled.div`
             opacity: unset;
          }
 
-         .add-to-cart-button {
+         button {
             opacity: unset;
          }
       }
